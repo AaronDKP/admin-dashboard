@@ -1,4 +1,5 @@
 * {
+    font-family: Roboto;
     margin: 0;
     padding: 0;
 }
@@ -11,18 +12,27 @@
 }
 
 header {
-    padding: 10px 30px;
     display: grid;
     grid-area: 1 / 2 / 2 / 3;
     grid-template-rows: 1fr 2fr;
+    margin: 0 20px;
     background-color: #fff;
-    box-shadow: 0px 15px 10px -15px #111;    
+    box-shadow: 0px 15px 10px -15px #000;   
 }
 
 .headerTop {
     display: grid;
     grid-template-columns: 5fr repeat(3, 1fr);
     align-items: center;
+    padding: 10px 30px 0 30px;
+}
+
+.headerBottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    justify-items: start;
+    padding: 0 30px; 
 }
 
 #searchBarContainer {
@@ -33,17 +43,53 @@ header {
     flex-shrink: 0;
 }
 
+#searchBarLabel>svg {
+    fill: #000;
+    height: 22px;
+}
+
 #searchBar {
     flex-grow: 1;
     margin: 0 20px;
     height: 26px;
-    background-color: #ddd;
+    background-color: #e2e8f0;
     border: none;
     border-radius: 12px;
 }
 
 #searchBar:hover {
-    background-color: #eee;
+    background-color: #e0f2fe;
+}
+
+#alertBtn>svg {
+    fill: #000;
+    height: 22px;
+}
+
+#profileImg {
+    height: 40px;
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 12px;
+}
+
+#username {
+    color: #000;
+}
+
+#username, #profileImg, #alertBtn {
+    justify-self: end;
+    gap: 0;
+}
+
+#profileImgLarge {
+    height: 60px;
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 12px;
+    margin-right: 20px;
+}
+
+#profileImg:hover, #profileImgLarge:hover {
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 4px 12px;
 }
 
 h1 {
@@ -56,15 +102,10 @@ h2 {
     margin-bottom: 6px;
 }
 
-.headerBottom {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: center;
-}
-
 #headerGreeting {
     display: grid;
     grid-template-columns: 1fr 4fr;
+    align-items: center;
 }
 
 .headerGreeting>div {
@@ -74,6 +115,7 @@ h2 {
 
 .headerBtnContainer {
     display: grid;
+    justify-self: end;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
@@ -97,8 +139,8 @@ h2 {
     grid-template-rows: repeat(3, 1fr);
 }
 
-button {
-    height: 50px;
+button {  
+    height: 40px;
     padding-left: 20px;
     font-size: 1em;
     font-weight: 700;
@@ -108,21 +150,44 @@ button {
     text-align: start;
 }
 
+button:hover {
+    color: #fbbf24;
+}
+
+button>svg:hover, label>svg:hover {
+    fill: #fbbf24;
+}
+
+.navbarBtn {
+    display: flex;
+    align-items: center;
+}
+
+.navbarBtn>svg {
+    fill: #fff;
+    height: 40%;
+    margin-right: 18px;
+}
+
+#dashboard>svg {
+    height: 80%;
+    margin-right: 10px;
+}
+
+#dashboard {
+    font-size: 1.4em;
+    margin-top: 10px;
+}
+
 .headerBtn {
-    height: 30px;
+    text-align: center;
+    padding: 0;
+    height: 40px;
     width: 100px;
     background-color: #0284c7;
     color: #fff;
     border: none;
-    border-radius: 16px;
-}
-
-#username {
-    color: #000;
-}
-
-button:hover {
-    background-color: aqua;
+    border-radius: 24px;
 }
 
 .projectContainer {
@@ -153,28 +218,60 @@ button:hover {
 }
 
 .project {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
+    border-left: 6px solid #fbbf24;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.projectBtnContainer {
+    margin-top: auto;
+    align-self: end;
+}
+
+.projectBtn>svg {
+    fill: #000;
+    height: 20px;
+}
+
+.project:hover, .announcementsGrid:hover, .trendingGrid:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+}
+
+.announcements, .trending {
+    display: flex;
+    flex-direction: column;
 }
 
 .announcementsGrid {
     display: grid;
+    flex-grow: 1;
     grid-template-rows: repeat(3, 1fr);
-    margin-top: 10px;
-    padding: 10px;
+    margin: 10px 0 20px 0;
+    padding: 20px;
     background-color: #fff;
-    gap: 10px;
+    gap: 20px;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
+.announcementsContent {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.announcementsContent:last-child {
+    border: none;
+}
+
 .trendingGrid {
     display: grid;
+    flex-grow: 1;
     grid-template-rows: repeat(4, 1fr);
     margin-top: 10px;
-    padding: 10px;
+    padding: 20px;
     gap: 10px;
     background-color: #fff;
     border-radius: 8px;
